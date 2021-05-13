@@ -13,7 +13,9 @@
     color: #fff;
 }
 
-.navbar .nav-link:hover,
+.navbar .nav-link:hover{
+    color: #7db249;
+}
 .navbar .nav-link:focus {
     color: #fff;
     text-decoration: none;
@@ -34,7 +36,9 @@
     color: #555;
 }
 
-.navbar.active .nav-link:hover,
+.navbar.active .nav-link:hover{
+   color: #7db249;
+}
 .navbar.active .nav-link:focus {
     color: #555;
     text-decoration: none;
