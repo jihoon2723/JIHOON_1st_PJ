@@ -1,9 +1,29 @@
 package jihoon.planner_web.domain;
 
 public class Member {
+    private Long id;
     private String name;
     private String email;
     private String password;
+    private String auth;
+
+    public String getAuth() {
+        return auth;
+    }
+
+    public void setAuth(String auth) {
+        this.auth = auth;
+    }
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
