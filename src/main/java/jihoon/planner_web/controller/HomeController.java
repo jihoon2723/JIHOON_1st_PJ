@@ -11,4 +11,9 @@ public class HomeController {
 
         return "index";
     }
+//    @GetMapping("/loginForm")
+//    public String loginForm() {
+//
+//        return "login_joinForm";
+//    }
 }
