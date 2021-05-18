@@ -1,22 +1,33 @@
 package jihoon.planner_web.controller;
 
+import jihoon.planner_web.domain.MemberInfo;
+import jihoon.planner_web.dto.MemberInfoDto;
 import jihoon.planner_web.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@RequiredArgsConstructor
 @Controller
 public class memberController {
     private final MemberService memberService;
 
-    @Autowired
-    public memberController(MemberService memberService) {
-        this.memberService = memberService;
+    @PostMapping("/user")
+    public String signup(MemberInfoDto infoDto){//회원 추가
+        memberService.save(infoDto);
+        return "redirect:/login_joinForm";
     }
 
-
-    @GetMapping("/member/login_joinForm.html")
-    public String login() {
-        return "member/login_joinForm";
+    @GetMapping(value ="/logout")
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response){
+        new SecurityContextLogoutHandler().logout(request,response, SecurityContextHolder.getContext().getAuthentication());
+        return "redirect:/login_joinForm";
     }
 }

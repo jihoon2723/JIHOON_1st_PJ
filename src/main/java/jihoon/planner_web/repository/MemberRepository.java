@@ -1,15 +1,12 @@
 package jihoon.planner_web.repository;
 
-import jihoon.planner_web.domain.Member;
+import jihoon.planner_web.domain.MemberInfo;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository {
+public interface MemberRepository extends JpaRepository<MemberInfo,Long> {
+    Optional<MemberInfo> findByEmail(String email);
 
-    Member save(Member member);
-    Optional<Member> findById(Long id);
-    Optional<Member> findByEmail(String email);
-    Optional<Member> findByName(String name);
-    List<Member> findAll();
 }
