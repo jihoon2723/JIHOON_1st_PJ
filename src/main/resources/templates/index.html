@@ -2,6 +2,7 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
         layout:decorate="~{layouts/layout}"
 >
 <head>
@@ -11,6 +12,8 @@
 
 <div layout:fragment="content">
     <div id="main_container">
+        ID : <span sec:authentication="name"></span> <br>
+        소유 권한 : <span sec:authentication="authorities"></span> <br>
         <div id="start_div">
 <!--            <p th:text="${name}+'님 반가워요!'"></p>-->
             <input type="button" value="시작하기" name="start" onclick="#"></div>
