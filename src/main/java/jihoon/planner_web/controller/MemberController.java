@@ -31,6 +31,6 @@ public class MemberController {
     @GetMapping(value = "/logout")
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-        return "redirect:/login_join";
+        return "redirect:/";
     }
 }
