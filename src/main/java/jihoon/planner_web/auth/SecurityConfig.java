@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login","/","/user").permitAll()
 //                .antMatchers().hasRole("USER")  // USER만 접근 가능
-                .antMatchers( "/signup").anonymous() //인증되지 않은 즉, 로그인 되지 않은 사용자만 접근 가능
+                .antMatchers( "/login_join","/signup").anonymous() //인증되지 않은 즉, 로그인 되지 않은 사용자만 접근 가능
 //                .anyRequest().authenticated()     //나머지 접근은 어떤 권한이든 있어야 접근 가능
                 .and()
                 .formLogin()  //spring security에서 제공하는 login form 이용한다는 뜻, 로그인 성공시 '/'로 리다이렉트
@@ -45,8 +45,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/") // 로그인 성공 후 리다이렉트 주소
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login_join") //로그아웃 성공시 리다이렉트 주소
-                .invalidateHttpSession(true);
+                .logoutSuccessUrl("/") //로그아웃 성공시 리다이렉트 주소
+                .invalidateHttpSession(true)
+                .and()
+                .exceptionHandling()
+                .accessDeniedPage("/");   //잘못된 접근 했을때 가는 페이지 우선 해놓음
+
 //                .and()
 //                .sessionManagement()
 //                .maximumSessions(1)
