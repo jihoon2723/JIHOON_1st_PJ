@@ -10,9 +10,9 @@
     <title>로그인/회원가입</title>
 </head>
 <body>
-<div class="wrap" >
+<div class="wrap">
     <div style="width:100%; text-align:center; ">
-        <a href="/"><img id="logo_img"style="width:260px; margin-top:50px;"src="/images/logo_white.png"></a>
+        <a href="/"><img id="logo_img" style="width:260px; margin-top:50px;" src="/images/logo_white.png"></a>
     </div>
     <div class="form-wrap">
         <div class="button-wrap">
@@ -20,26 +20,41 @@
             <button type="button" class="togglebtn" onclick="login()">로그인</button>
             <button type="button" class="togglebtn" onclick="register()">회원가입</button>
         </div>
-<!--        <div class="social-icons">-->
-<!--            <img src="img/fb.png" alt="facebook">-->
-<!--            <img src="img/tw.png" alt="twitter">-->
-<!--            <img src="img/gl.png" alt="google">-->
-<!--        </div>-->
-        <form id="login" action="/login_join"method="post" class="input-group">
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-            <input type="text" class="input-field" name= "username" placeholder="User name or Email" required>
+        <!--        <div class="social-icons">-->
+        <!--            <img src="img/fb.png" alt="facebook">-->
+        <!--            <img src="img/tw.png" alt="twitter">-->
+        <!--            <img src="img/gl.png" alt="google">-->
+        <!--        </div>-->
+        <form id="login" action="/login_join" method="post" class="input-group">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <input type="text" class="input-field" name="username" placeholder="User name or Email" required>
             <input type="password" class="input-field" name="password" placeholder="Enter Password" required>
-<!--            <input type="checkbox" class="checkbox"><span>Remember Id</span>-->
+            <!--            <input type="checkbox" class="checkbox"><span>Remember Id</span>-->
             <button class="submit">Login</button>
         </form>
         <form id="register" th:action="@{/user}" method="post" class="input-group">
             <input type="text" class="input-field" name="name" placeholder="User name" required>
             <input type="email" class="input-field" name="email" placeholder="Your Email" required>
-            <input type="password" class="input-field" name="password"placeholder="Enter Password" required>
+            <button class="emailCheck" onclick="emailSend()">인증</button>
+            <input type="password" class="input-field" name="password" placeholder="Enter Password" required>
             <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
-<!--            <input type="checkbox" class="checkbox"><span>Terms and conditions</span>-->
+            <!--            <input type="checkbox" class="checkbox"><span>Terms and conditions</span>-->
             <button type="submit" class="submit">Join</button>
         </form>
+<!--     이메일 인증번호 모달 창  -->
+        <div class="modal hidden">
+            <div class="bg"></div>
+            <div class="modalBox">
+                <p>인증번호 입력</p>
+                <br>
+                <br>
+                <input id="certificationNumber" type="text" placeholder="인증번호 입력" required>
+                <div style="padding-top:20px;">
+                    <button id="certificationBtn" onclick="emailCertification()">인증하기</button>
+                    <input type="hidden" id="certificationYN" value="false">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>
@@ -59,6 +74,17 @@
                 y.style.left = "50px";
                 z.style.left = "110px";
             }
+
+         const open = () => {
+    document.querySelector(".modal").classList.remove("hidden");
+  }
+
+  const close = () => {
+    document.querySelector(".modal").classList.add("hidden");
+  }
+
+  document.querySelector(".emailCheck").addEventListener("click", open);
+  document.querySelector("#certificationBtn").addEventListener("click", close);
 
 </script>
 </body>
