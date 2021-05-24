@@ -43,10 +43,10 @@ public class MemberService implements UserDetailsService {
         infoDto.setPassword(encoder.encode(infoDto.getPassword()));
 
         return memberRepository.save(MemberInfo.builder()
-        .email(infoDto.getEmail())
-        .auth(infoDto.getAuth())
-        .name(infoDto.getName())
-        .password(infoDto.getPassword()).build()).getId();
+            .email(infoDto.getEmail())
+            .auth(infoDto.getAuth())
+            .name(infoDto.getName())
+            .password(infoDto.getPassword()).build()).getId();
 
     }
 
