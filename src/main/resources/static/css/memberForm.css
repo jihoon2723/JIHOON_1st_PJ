@@ -20,6 +20,10 @@
     background: #fff;
     padding: 5px;
     overflow: hidden;
+    text-align : center;
+}
+.wrap-head{
+    margin : 25px auto;
 }
 .button-wrap {
     width: 230px;
@@ -74,7 +78,7 @@
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin: 20px auto;
     background: linear-gradient(to right, #ff105f, #ffad06);
     border: 0;
     outline: none;
@@ -93,8 +97,10 @@ span {
     left: 50px;
 }
 #register {
-    left: 450px;
+    left: 50px;
 }
+
+
 .modal {
   position: fixed;
   top: 0;

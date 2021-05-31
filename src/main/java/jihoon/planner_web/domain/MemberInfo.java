@@ -17,7 +17,7 @@ import java.util.Set;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
-@Table(name = "zp_user")
+@Table(name = "user")
 public class MemberInfo implements UserDetails {
 
     @Id

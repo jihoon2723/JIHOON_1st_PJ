@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/memberForm.css?ver=2">
+    <title>회원가입</title>
+</head>
+<body>
+<div class="wrap">
+    <div style="width:100%; text-align:center; ">
+        <a href="/"><img id="logo_img" style="width:260px; margin-top:50px;" src="/images/logo_white.png"></a>
+    </div>
+    <div class="form-wrap">
+        <div class="wrap-head"><h1>회원가입</h1></div>
+        <form id="register" th:action="@{/user}" method="post" class="input-group">
+            <input type="text" class="input-field" name="name" placeholder="User name" required>
+            <input type="email" class="input-field" name="email" placeholder="Your Email" required>
+            <!--            <button class="emailCheck" onclick="emailSend()">인증</button>-->
+<!--            <button class="emailCheck" th:onclick="'location.href=\''+@{${email}}+'\''">중복확인</button>-->
+            <input type="password" class="input-field" name="password" placeholder="Enter Password" required>
+            <input type="hidden" name="auth" value="ROLE_USER" checked="checked"> <br/><br/>
+            <!--            <input type="checkbox" class="checkbox"><span>Terms and conditions</span>-->
+            <button type="submit" class="submit">Join</button>
+        </form>
+        <!--     이메일 인증번호 모달 창-->
+        <!--        <div class="modal hidden">-->
+        <!--            <div class="bg"></div>-->
+        <!--            <div class="modalBox">-->
+        <!--                <p>인증번호 입력</p>-->
+        <!--                <br>-->
+        <!--                <br>-->
+        <!--                <input id="certificationNumber" type="text" placeholder="인증번호 입력" required>-->
+        <!--                <div style="padding-top:20px;">-->
+        <!--                    <button id="certificationBtn" onclick="emailCertification()">인증하기</button>-->
+        <!--                    <input type="hidden" id="certificationYN" value="false">-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </div>
+</div>
+
+
+const open = () => {
+document.querySelector(".modal").classList.remove("hidden");
+}
+
+const close = () => {
+document.querySelector(".modal").classList.add("hidden");
+}
+
+document.querySelector(".emailCheck").addEventListener("click", open);
+document.querySelector("#certificationBtn").addEventListener("click", close);
+
+</body>
+</html>

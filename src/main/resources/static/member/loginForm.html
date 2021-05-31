@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/memberForm.css?ver=2">
+    <title>로그인</title>
+</head>
+<body>
+<div class="wrap">
+    <div style="width:100%; text-align:center; ">
+        <a href="/"><img id="logo_img" style="width:260px; margin-top:50px;" src="/images/logo_white.png"></a>
+    </div>
+    <div class="form-wrap">
+       <div class="wrap-head"><h1>로그인</h1></div>
+        <form id="login" action="/login" method="post" class="input-group">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <input type="text" class="input-field" name="username" placeholder="User name or Email" required>
+            <input type="password" class="input-field" name="password" placeholder="Enter Password" required>
+            <!--            <input type="checkbox" class="checkbox"><span>Remember Id</span>-->
+            <button class="submit">Login</button>
+        </form>
+
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>

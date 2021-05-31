@@ -49,5 +49,8 @@ public class MemberService implements UserDetailsService {
             .password(infoDto.getPassword()).build()).getId();
 
     }
+    public boolean checkEmailDuplicate(String email){
+        return memberRepository.existsByEmail(email);
+    }
 
 }
