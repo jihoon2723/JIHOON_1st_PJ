@@ -5,10 +5,10 @@
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 >
 <head>
-    <title>Z플래너</title>
-    <meta charset="UTF-8" />
+    <title>UDHJ</title>
+    <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" sizes="16x16">
     <link rel="stylesheet" href="/css/main.css?ver=1">
     <link rel="stylesheet" href="/css/footer.css?ver=1">
     <link rel="stylesheet" href="/css/header.css?ver=1">
@@ -34,13 +34,24 @@ $(function () {
     $(window).on('scroll', function () {
         if ( $(window).scrollTop() > 10 ) {
             $('.navbar').addClass('active');
-             $("#logo_img").attr("src", "/images/logo_basic.png");
+             $("#logo_img").attr("src", "/images/logo_black.png");
         } else {
             $('.navbar').removeClass('active');
             $("#logo_img").attr("src", "/images/logo_white.png");
         }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
